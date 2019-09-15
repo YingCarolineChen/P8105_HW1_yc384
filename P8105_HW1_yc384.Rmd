@@ -30,32 +30,35 @@ output: github_document
 * a character vector of length 8
 * a factor vector of length 8, with 3 different factor “levels”
 
-```{r HW1_1, include=TRUE}
+```{r HW1_1_df, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 
 # Create a dataframe 
-la_df = tibble(
+hw1_df = tibble(
 #a random sample of size 8 from a standard Normal distribution
 norm_samp = rnorm (8, mean = 0, sd = 1),
 # Logic vector: if elements of the random sample are positive
 norm_samp_pos = norm_samp > 0,
 # Character vector of length 8
-var_char = c("a", "b", "c", "abc", "ad", "ac", "bc", " "),
+vec_char = c("a", "b", "c", "abc", "ad", "ac", "bc", " "),
 # Factor vector of length 8 with 3 differesnt levels
-var_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high", "low"))
+vec_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high", "low")),
+
 )
 
-# Show data structure of the created data frame
-str(la_df)
-```
+# Take the mean of each variable
+# Examing the mean of varible norm_samp: 
+mean(hw1_df$norm_samp)
+# Examing the mean of varible norm_samp_pos: 
+mean(hw1_df$norm_samp_pos)
+# Examing the mean of varible var_char: 
+mean(hw1_df$vec_char)
+# xaming the mean of varible var_factor: 
+mean(hw1_df$vec_factor)
 
-#### Take the mean of each variable
-* Examing the mean of varible norm_samp: `r mean(la_df$norm_samp)`.
-* Examing the mean of varible norm_samp_pos: `r mean(la_df$norm_samp_pos)`.
-* Examing the mean of varible var_char: `r mean(la_df$var_char)`.
-* Examing the mean of varible var_factor: `r mean(la_df$var_factor)`.
+```
 
 * **From results above, we can see that the ransom normal sample and the logic vector had their mean calculated. But the character variable and the factor variable did not have the mean calculated.**
 
@@ -64,8 +67,4 @@ str(la_df)
 * convert the logical vector to numeric, and multiply the random sample by the result
 * convert the logical vector to a factor, and multiply the random sample by the result
 * convert logical vector to factor & then convert result to numeric & multiply the random sample by the result
-
-
-
-
 
