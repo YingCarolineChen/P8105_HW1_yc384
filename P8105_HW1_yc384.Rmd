@@ -1,0 +1,71 @@
+---
+title2: "P8105_hw1_yc384"
+author: "Ying Chen (UNI: yc384)"
+date: "9/14/2019"
+output: github_document
+---
+
+# **P8105 DSI Homework 1**
+
+## Problem 0.1: Use R Markdown to write reproducible reports, GitHub for version control, and R Projects to organize your work.
+
+* Created a public GitHub repo and a local R Project both named P8105_HW1_yc384
+* Created a single .Rmd file: P8105_HW1_yc384.Rmd
+* My link to homework1 repo is: https://github.com/YingCarolineChen/P8105_HW1_yc384.git
+
+
+## Problem 0.2: Code styling: pay attention the the points listed below
+
+* Meaningful variable / object names
+* Readable code (one command per line; adequate whitespace and indentation; etc)
+* Clearly-written text to explain code and results
+* A lack of superfluous code (no unused variables are defined; no extra library calls; ect)
+
+
+## Problem 1: Understand variable types in R: numeric, character, and factor variables:
+
+### 1. First code chunk: This chunk Create a data frame comprised of:
+* a random sample of size 8 from a standard Normal distribution
+* a logical vector indicating whether elements of the sample are greater than 0
+* a character vector of length 8
+* a factor vector of length 8, with 3 different factor “levels”
+
+```{r HW1_1, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+# Create a dataframe 
+la_df = tibble(
+#a random sample of size 8 from a standard Normal distribution
+norm_samp = rnorm (8, mean = 0, sd = 1),
+# Logic vector: if elements of the random sample are positive
+norm_samp_pos = norm_samp > 0,
+# Character vector of length 8
+var_char = c("a", "b", "c", "abc", "ad", "ac", "bc", " "),
+# Factor vector of length 8 with 3 differesnt levels
+var_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high", "low"))
+)
+
+# Show data structure of the created data frame
+str(la_df)
+```
+
+#### Take the mean of each variable
+* Examing the mean of varible norm_samp: `r mean(la_df$norm_samp)`.
+* Examing the mean of varible norm_samp_pos: `r mean(la_df$norm_samp_pos)`.
+* Examing the mean of varible var_char: `r mean(la_df$var_char)`.
+* Examing the mean of varible var_factor: `r mean(la_df$var_factor)`.
+
+* **From results above, we can see that the ransom normal sample and the logic vector had their mean calculated. But the character variable and the factor variable did not have the mean calculated.**
+
+
+### 2. Second code chunk:  
+* convert the logical vector to numeric, and multiply the random sample by the result
+* convert the logical vector to a factor, and multiply the random sample by the result
+* convert logical vector to factor & then convert result to numeric & multiply the random sample by the result
+
+
+
+
+
