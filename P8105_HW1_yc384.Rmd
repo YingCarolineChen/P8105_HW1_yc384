@@ -24,7 +24,7 @@ output: github_document
 
 ## Problem 1: Understand variable types in R: numeric, character, and factor variables:
 
-### 1. First code chunk: This chunk Create a data frame comprised of:
+### 1_1. First code chunk: This chunk Create a data frame comprised of:
 * a random sample of size 8 from a standard Normal distribution
 * a logical vector indicating whether elements of the sample are greater than 0
 * a character vector of length 8
@@ -55,7 +55,7 @@ mean(hw1_df$norm_samp)
 mean(hw1_df$norm_samp_pos)
 # Examing the mean of varible var_char: 
 mean(hw1_df$vec_char)
-# xaming the mean of varible var_factor: 
+# Examing the mean of varible var_factor: 
 mean(hw1_df$vec_factor)
 
 ```
@@ -63,7 +63,23 @@ mean(hw1_df$vec_factor)
 * **From results above, we can see that the ransom normal sample and the logic vector had their mean calculated. But the character variable and the factor variable did not have the mean calculated.**
 
 
-### 2. Second code chunk:  
+### 1_2.  Second code chunk applies as.numeric function to the other types of varaibles
+
+```{r, eval=FALSE}
+as.numeric(pull(hw1_df, norm_samp_pos))
+as.numeric(pull(hw1_df, vec_char))
+as.numeric(pull(hw1_df, vec_factor))
+
+```
+
+* When apply as.numeric function to the logical variables, it returns 0 and 1; 
+* When apply as.numeric function to the character variables, it returns NA;
+* When apply as.numeric function to the factor variables, it returns three levels in   
+  numbers according to their alphabet order ;
+
+* Yes. This is helpful to explain why we could not take the mean of a character or a factor variables. They are not numeric variables. 
+
+### 1_3. Third code chunk:  
 * convert the logical vector to numeric, and multiply the random sample by the result
 * convert the logical vector to a factor, and multiply the random sample by the result
 * convert logical vector to factor & then convert result to numeric & multiply the random sample by the result

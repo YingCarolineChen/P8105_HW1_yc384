@@ -1,9 +1,7 @@
 # P8105_HW1_yc384
 # Due by 09/20/2019
+# UNI: yc384
 
-Having trouble figuring out the factor variable with lengh 8 and 3 levels
-It actually meant vector length, not the length of string ... Problem solved!
+This file is created for P8105 Data Science I Home Work #1. 
 
-Stopped at end of hw1_1. Backup ...
-
-Changed df name and some of the vector names.
+The purpose of this homework is to get familiar with how to use Github and write reproducable R codes. 
