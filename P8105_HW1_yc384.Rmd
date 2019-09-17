@@ -45,7 +45,6 @@ norm_samp_pos = norm_samp > 0,
 vec_char = c("a", "b", "c", "abc", "ad", "ac", "bc", " "),
 # Factor vector of length 8 with 3 differesnt levels
 vec_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high", "low")),
-
 )
 
 # Take the mean of each variable
@@ -63,19 +62,18 @@ mean(hw1_df$vec_factor)
 * **From results above, we can see that the ransom normal sample and the logic vector had their mean calculated. But the character variable and the factor variable did not have the mean calculated.**
 
 
-### 1_2.  Second code chunk applies as.numeric function to the other types of varaibles
-
+### 1_2.  Second code chunk applies as.numeric function to the other types of varaibles(only show code, not output)
+        
 ```{r, eval=FALSE}
 as.numeric(pull(hw1_df, norm_samp_pos))
 as.numeric(pull(hw1_df, vec_char))
 as.numeric(pull(hw1_df, vec_factor))
 
 ```
-
 * When apply as.numeric function to the logical variables, it returns 0 and 1; 
 * When apply as.numeric function to the character variables, it returns NA;
 * When apply as.numeric function to the factor variables, it returns three levels in   
-  numbers according to their alphabet order ;
+  numbers according to their alphabet order;
 
 * Yes. This is helpful to explain why we could not take the mean of a character or a factor variables. They are not numeric variables. 
 
@@ -83,4 +81,50 @@ as.numeric(pull(hw1_df, vec_factor))
 * convert the logical vector to numeric, and multiply the random sample by the result
 * convert the logical vector to a factor, and multiply the random sample by the result
 * convert logical vector to factor & then convert result to numeric & multiply the random sample by the result
+
+```{r, include = TRUE}
+# Create a data frame that converts different types of variable
+hw1_dt = tibble(
+  norm_samp = rnorm (8, mean = 0, sd = 1),
+  
+  # Convert logical vector to numeric
+  logic_num = as.numeric(pull(hw1_df, norm_samp_pos)),
+  # multiply converted variable by the random sample
+  logic_num_normsamp = logic_num * norm_samp,
+  
+  # Covert logical vector to factor
+  logic_factor = as.factor(pull(hw1_df, norm_samp_pos)),
+  # multiply converted variable by the random sample
+  logic_factor_normsamp = logic_factor * norm_samp,
+  
+  #convert logical vector to factor & then convert result to numeric
+  logic_factor_num = as.numeric(logic_factor),
+  logic_factor_num_normsamp = logic_factor_num * norm_samp
+)
+ 
+```
+
+## Problem 2: Using ggplot to plot different types of variables
+
+```{r HW1_2_df, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Create a dataframe 
+hw2_df = tibble(
+ #a random sample of size 500
+ x = rnorm (500),
+ y = rnorm (500),
+
+ # Logic vector: if x + y > 1
+ Logical_var1 = x + y > 1,
+ # coercing the above logical vector to numeric
+ numeric_var1 = as.numeric(Logical_var1),
+ # coercing the above logical vector to factor
+ factor_var1 = as.factor(Logical_var1)
+)
+
+```
+
+
+
 
