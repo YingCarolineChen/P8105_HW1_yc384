@@ -139,15 +139,15 @@ HW1_2_df = tibble(
 ### 2_3 Make a scatterplot of y vs x
 ```{r HW1_2_plots, include=TRUE}
 
-## Scatter plot for logical variable
-ggplot(HW1_2_df, aes(x = x, y = y, color=Logical_var1)) + geom_point()
+## Scatter plot clolored for logical variable
+first_plot = ggplot(HW1_2_df, aes(x = x, y = y, color=Logical_var1)) + geom_point() 
 ## Export the first scatterplot to project directory using ggsave
-ggsave("plot1.jpeg", plot = last_plot())
+ggsave("first_plot.pdf", first_plot, width = 8, height = 5)
 
-## Scatter plot for numerical variable, color by factor_var1
+## Scatter plot clolored for numerical variable
 ggplot(HW1_2_df, aes(x = x, y = y, color=numeric_var1)) + geom_point()
 
-## Scatter plot for factor variable, color by numerical varaible
+## Scatter plot clolored for factor variable
 ggplot(HW1_2_df, aes(x = x, y = y, color=factor_var1)) + geom_point()
 
 ```
