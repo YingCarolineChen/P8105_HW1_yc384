@@ -39,14 +39,14 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ────────────────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ───────────────────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.2.1     ✔ purrr   0.3.2
     ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
     ## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
     ## ✔ readr   1.3.1     ✔ forcats 0.4.0
 
-    ## ── Conflicts ───────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ──────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -69,14 +69,14 @@ hw1_df = tibble(
 mean(hw1_df$norm_samp)
 ```
 
-    ## [1] 0.1833698
+    ## [1] 0.2463512
 
 ``` r
 ## Examing the mean of varible norm_samp_pos: 
 mean(hw1_df$norm_samp_pos)
 ```
 
-    ## [1] 0.625
+    ## [1] 0.75
 
 ``` r
 ## Examing the mean of varible var_char: 
@@ -196,29 +196,20 @@ HW1_2_df = tibble(
 ### 2\_3 Make a scatterplot of y vs x
 
 ``` r
-## Scatter plot for logical variable
-ggplot(HW1_2_df, aes(x = x, y = y, color=Logical_var1)) + geom_point()
+## Scatter plot clolored for logical variable
+first_plot = ggplot(HW1_2_df, aes(x = x, y = y, color=Logical_var1)) + geom_point() 
+## Export the first scatterplot to project directory using ggsave
+ggsave("first_plot.pdf", first_plot, width = 8, height = 5)
+
+## Scatter plot clolored for numerical variable
+ggplot(HW1_2_df, aes(x = x, y = y, color=numeric_var1)) + geom_point()
 ```
 
 ![](P8105_HW1_yc384-Knit-file_files/figure-gfm/HW1_2_plots-1.png)<!-- -->
 
 ``` r
-## Export the first scatterplot to project directory using ggsave
-ggsave("plot1.jpeg", plot = last_plot())
-```
-
-    ## Saving 7 x 5 in image
-
-``` r
-## Scatter plot for numerical variable, color by factor_var1
-ggplot(HW1_2_df, aes(x = x, y = y, color=numeric_var1)) + geom_point()
-```
-
-![](P8105_HW1_yc384-Knit-file_files/figure-gfm/HW1_2_plots-2.png)<!-- -->
-
-``` r
-## Scatter plot for factor variable, color by numerical varaible
+## Scatter plot clolored for factor variable
 ggplot(HW1_2_df, aes(x = x, y = y, color=factor_var1)) + geom_point()
 ```
 
-![](P8105_HW1_yc384-Knit-file_files/figure-gfm/HW1_2_plots-3.png)<!-- -->
+![](P8105_HW1_yc384-Knit-file_files/figure-gfm/HW1_2_plots-2.png)<!-- -->
