@@ -44,7 +44,8 @@ hw1_df = tibble(
  ## Character vector of length 8
  vec_char = c("a", "b", "c", "abc", "ad", "ac", "bc", " "),
  ## Factor vector of length 8 with 3 differesnt levels
- vec_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high","low")),
+ vec_factor = factor(c("low", "high", "medium", "high", "low", "medium", "high",  
+                       "low")),
 )
 
 ## Take the mean of each variable
@@ -139,14 +140,14 @@ HW1_2_df = tibble(
 ```{r HW1_2_plots, include=TRUE}
 
 ## Scatter plot for logical variable
-ggplot(HW1_2_df, aes(x = Logical_var1, y = y, color=factor_var1)) + geom_point()
+ggplot(HW1_2_df, aes(x = x, y = y, color=Logical_var1)) + geom_point()
 ## Export the first scatterplot to project directory using ggsave
 ggsave("plot1.jpeg", plot = last_plot())
 
 ## Scatter plot for numerical variable, color by factor_var1
-ggplot(HW1_2_df, aes(x = numeric_var1, y = y, color=factor_var1)) + geom_point()
+ggplot(HW1_2_df, aes(x = x, y = y, color=numeric_var1)) + geom_point()
 
 ## Scatter plot for factor variable, color by numerical varaible
-ggplot(HW1_2_df, aes(x = factor_var1, y = y, color=numeric_var1)) + geom_point()
+ggplot(HW1_2_df, aes(x = x, y = y, color=factor_var1)) + geom_point()
 
 ```
